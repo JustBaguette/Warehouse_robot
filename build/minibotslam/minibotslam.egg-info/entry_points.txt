@@ -1,0 +1,2 @@
+[console_scripts]
+tf_updater = minibotslam.tf_updater:main

@@ -1,0 +1,28 @@
+[0.965s] Invoking command in '/home/spaget/manipal/warehouse/src/ros2slam/src/minibotslam': PYTHONPATH=/home/spaget/manipal/warehouse/src/ros2slam/build/minibotslam/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/spaget/manipal/warehouse/src/ros2slam/install/minibotslam/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/minibotslam build --build-base /home/spaget/manipal/warehouse/src/ros2slam/build/minibotslam/build install --record /home/spaget/manipal/warehouse/src/ros2slam/build/minibotslam/install.log --single-version-externally-managed install_data
+[1.098s] /home/spaget/.local/lib/python3.10/site-packages/setuptools/_distutils/dist.py:270: UserWarning: Unknown distribution option: 'tests_require'
+[1.098s]   warnings.warn(msg)
+[1.194s] running egg_info
+[1.209s] writing ../../build/minibotslam/minibotslam.egg-info/PKG-INFO
+[1.209s] writing dependency_links to ../../build/minibotslam/minibotslam.egg-info/dependency_links.txt
+[1.210s] writing entry points to ../../build/minibotslam/minibotslam.egg-info/entry_points.txt
+[1.210s] writing requirements to ../../build/minibotslam/minibotslam.egg-info/requires.txt
+[1.210s] writing top-level names to ../../build/minibotslam/minibotslam.egg-info/top_level.txt
+[1.245s] reading manifest file '../../build/minibotslam/minibotslam.egg-info/SOURCES.txt'
+[1.246s] writing manifest file '../../build/minibotslam/minibotslam.egg-info/SOURCES.txt'
+[1.247s] running build
+[1.247s] running build_py
+[1.247s] copying minibotslam/tf_updater.py -> /home/spaget/manipal/warehouse/src/ros2slam/build/minibotslam/build/lib/minibotslam
+[1.247s] copying minibotslam/robotcontroller.py -> /home/spaget/manipal/warehouse/src/ros2slam/build/minibotslam/build/lib/minibotslam
+[1.248s] copying minibotslam/__init__.py -> /home/spaget/manipal/warehouse/src/ros2slam/build/minibotslam/build/lib/minibotslam
+[1.248s] running install
+[1.255s] running install_lib
+[1.271s] running install_data
+[1.271s] copying resource/minibotslam -> /home/spaget/manipal/warehouse/src/ros2slam/install/minibotslam/share/ament_index/resource_index/packages
+[1.271s] copying package.xml -> /home/spaget/manipal/warehouse/src/ros2slam/install/minibotslam/share/minibotslam
+[1.272s] running install_egg_info
+[1.289s] removing '/home/spaget/manipal/warehouse/src/ros2slam/install/minibotslam/lib/python3.10/site-packages/minibotslam-0.0.0-py3.10.egg-info' (and everything under it)
+[1.289s] Copying ../../build/minibotslam/minibotslam.egg-info to /home/spaget/manipal/warehouse/src/ros2slam/install/minibotslam/lib/python3.10/site-packages/minibotslam-0.0.0-py3.10.egg-info
+[1.290s] running install_scripts
+[1.409s] Installing tf_updater script to /home/spaget/manipal/warehouse/src/ros2slam/install/minibotslam/lib/minibotslam
+[1.410s] writing list of installed files to '/home/spaget/manipal/warehouse/src/ros2slam/build/minibotslam/install.log'
+[1.432s] Invoked command in '/home/spaget/manipal/warehouse/src/ros2slam/src/minibotslam' returned '0': PYTHONPATH=/home/spaget/manipal/warehouse/src/ros2slam/build/minibotslam/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/spaget/manipal/warehouse/src/ros2slam/install/minibotslam/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/minibotslam build --build-base /home/spaget/manipal/warehouse/src/ros2slam/build/minibotslam/build install --record /home/spaget/manipal/warehouse/src/ros2slam/build/minibotslam/install.log --single-version-externally-managed install_data

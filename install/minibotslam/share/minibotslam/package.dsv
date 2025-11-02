@@ -1,0 +1,6 @@
+source;share/minibotslam/hook/pythonpath.ps1
+source;share/minibotslam/hook/pythonpath.dsv
+source;share/minibotslam/hook/pythonpath.sh
+source;share/minibotslam/hook/ament_prefix_path.ps1
+source;share/minibotslam/hook/ament_prefix_path.dsv
+source;share/minibotslam/hook/ament_prefix_path.sh

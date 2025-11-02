@@ -1,0 +1,1 @@
+controller_manager:joint_state_publisher:joint_state_publisher_gui:robot_state_publisher:ros2_control_node:ros2_controllers:ros_gz_sim:rviz:xacro

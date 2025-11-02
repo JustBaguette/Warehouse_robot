@@ -1,0 +1,17 @@
+package.xml
+setup.cfg
+setup.py
+../../build/minibotslam/minibotslam.egg-info/PKG-INFO
+../../build/minibotslam/minibotslam.egg-info/SOURCES.txt
+../../build/minibotslam/minibotslam.egg-info/dependency_links.txt
+../../build/minibotslam/minibotslam.egg-info/entry_points.txt
+../../build/minibotslam/minibotslam.egg-info/requires.txt
+../../build/minibotslam/minibotslam.egg-info/top_level.txt
+../../build/minibotslam/minibotslam.egg-info/zip-safe
+minibotslam/__init__.py
+minibotslam/robotcontroller.py
+minibotslam/tf_updater.py
+resource/minibotslam
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py

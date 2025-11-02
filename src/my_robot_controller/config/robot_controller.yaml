@@ -1,0 +1,65 @@
+controller_manager:
+  ros__parameters:
+     update_rate: 1000
+     use_sim_time: True
+
+     joint_state_broadcaster:
+        type: joint_state_broadcaster/JointStateBroadcaster
+
+    #  simple_velocity_controller:
+    #     type: velocity_controllers/JointGroupVelocityController
+
+     mobile_robot_controller:
+        type: diff_drive_controller/DiffDriveController
+
+# simple_velocity_controller:
+#   ros__parameters:
+#     joints:
+#       base_LF
+#       base_LB
+#       base_RF
+#       base_RB
+
+mobile_robot_controller:
+  ros__parameters:
+    type: diff_drive_controller/DiffDriveController
+    use_stamped_vel: True
+    left_wheel_names: ['base_LF' , 'base_LB'] 
+    right_wheel_names: ['base_RF' , 'base_RB']
+
+    publish_rate: 1000.0
+    pose_covariance_diadonal: [0.001, 0.001, 1.0e-3, 1.0e-3, 1.0e-3, 0.01]
+    twist_covariance_diadonal: [0.001, 0.001, 1.0e-3, 1.0e-3, 1.0e-3, 0.01]
+
+    wheel_radius: 0.022
+    wheel_separation: 0.154
+    left__wheel_radius_multiplier: 1.0
+    right__wheel_radius_multiplier: 1.0
+    wheel_separation_multiplier: 1.0
+
+    cmd_vel_timeout: 1.0
+    base_frame_id: base_footprint
+    publish_limited_velocity: True
+    publish_wheel_data: True
+    enable_odom_tf: True
+
+    linear:
+      x:
+        has_velocity_limits: True
+        max_velocity: 4.0
+        min_velocity: -4.0
+        has_acceleration_limits: True
+        max_acceleration: 1.8
+        min_acceleration: -0.8
+        has_jerk_limit: false
+
+    angular:
+      z:
+        has_velocity_limits: True
+        max_velocity: 4.7
+        min_velocity: -4.7
+        has_acceleration_limits: True
+        max_acceleration: 1.8
+        min_acceleration: -0.8
+        has_jerk_limit: false
+              
