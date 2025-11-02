@@ -11,6 +11,45 @@
             <robot_param_node>robot_state_publisher</robot_param_node>
             <parameters>/home/spaget/manipal/warehouse/src/ros2slam/src/my_robot_description/config/robot_controller.yaml</parameters>
         </plugin>
+
     </gazebo>
+
+    <!-- <gazebo reference="laser_frame">
+       <sensor name='lidar' type='ray'>"
+                <plugin name="gazebo_lidar_plugin" filename="libgazebo_ros_ray_sensor.so">
+                <ros>
+                    <argument>~/out:=scan</argument>
+                </ros>
+                <output_type>sensor_msgs/LaserScan</output_type>
+                <frame_name>laser_frame</frame_name>
+            </plugin>
+            <pose>0 0 0 0 0 0</pose>
+            <topic>lidar</topic>
+            <update_rate>10</update_rate>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>100</samples>
+                        <resolution>1</resolution>
+                        <min_angle>-1.396263</min_angle>
+                        <max_angle>1.396263</max_angle>
+                    </horizontal>
+                    <vertical>
+                        <samples>1</samples>
+                        <resolution>0.01</resolution>
+                        <min_angle>0</min_angle>
+                        <max_angle>0</max_angle>
+                    </vertical>
+                </scan>
+                <range>
+                    <min>0.08</min>
+                    <max>10.0</max>
+                    <resolution>0.01</resolution>
+                </range>
+            </ray>
+            <always_on>1</always_on>
+            <visualize>false</visualize>
+        </sensor>
+    </gazebo> -->
 
 </robot>

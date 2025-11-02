@@ -1,8 +1,8 @@
-# Install script for directory: /home/spaget/manipal/warehouse/src/ros2slam/src/my_robot_controller
+# Install script for directory: /home/spaget/manipal/warehouse/src/ros2slam/Warehouse_robot/src/my_robot_controller
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/spaget/manipal/warehouse/src/ros2slam/install/my_robot_controller")
+  set(CMAKE_INSTALL_PREFIX "/home/spaget/manipal/warehouse/src/ros2slam/Warehouse_robot/install/my_robot_controller")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -44,17 +44,17 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_robot_controller/" TYPE DIRECTORY FILES
-    "/home/spaget/manipal/warehouse/src/ros2slam/src/my_robot_controller/config"
-    "/home/spaget/manipal/warehouse/src/ros2slam/src/my_robot_controller/launch"
+    "/home/spaget/manipal/warehouse/src/ros2slam/Warehouse_robot/src/my_robot_controller/config"
+    "/home/spaget/manipal/warehouse/src/ros2slam/Warehouse_robot/src/my_robot_controller/launch"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/spaget/manipal/warehouse/src/ros2slam/build/my_robot_controller/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/my_robot_controller")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/spaget/manipal/warehouse/src/ros2slam/Warehouse_robot/build/my_robot_controller/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/my_robot_controller")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/spaget/manipal/warehouse/src/ros2slam/build/my_robot_controller/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/my_robot_controller")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/spaget/manipal/warehouse/src/ros2slam/Warehouse_robot/build/my_robot_controller/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/my_robot_controller")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -62,7 +62,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_robot_controller/environment" TYPE FILE FILES "/home/spaget/manipal/warehouse/src/ros2slam/build/my_robot_controller/ament_cmake_environment_hooks/ament_prefix_path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_robot_controller/environment" TYPE FILE FILES "/home/spaget/manipal/warehouse/src/ros2slam/Warehouse_robot/build/my_robot_controller/ament_cmake_environment_hooks/ament_prefix_path.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -70,42 +70,42 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_robot_controller/environment" TYPE FILE FILES "/home/spaget/manipal/warehouse/src/ros2slam/build/my_robot_controller/ament_cmake_environment_hooks/path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_robot_controller/environment" TYPE FILE FILES "/home/spaget/manipal/warehouse/src/ros2slam/Warehouse_robot/build/my_robot_controller/ament_cmake_environment_hooks/path.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_robot_controller" TYPE FILE FILES "/home/spaget/manipal/warehouse/src/ros2slam/build/my_robot_controller/ament_cmake_environment_hooks/local_setup.bash")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_robot_controller" TYPE FILE FILES "/home/spaget/manipal/warehouse/src/ros2slam/Warehouse_robot/build/my_robot_controller/ament_cmake_environment_hooks/local_setup.bash")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_robot_controller" TYPE FILE FILES "/home/spaget/manipal/warehouse/src/ros2slam/build/my_robot_controller/ament_cmake_environment_hooks/local_setup.sh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_robot_controller" TYPE FILE FILES "/home/spaget/manipal/warehouse/src/ros2slam/Warehouse_robot/build/my_robot_controller/ament_cmake_environment_hooks/local_setup.sh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_robot_controller" TYPE FILE FILES "/home/spaget/manipal/warehouse/src/ros2slam/build/my_robot_controller/ament_cmake_environment_hooks/local_setup.zsh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_robot_controller" TYPE FILE FILES "/home/spaget/manipal/warehouse/src/ros2slam/Warehouse_robot/build/my_robot_controller/ament_cmake_environment_hooks/local_setup.zsh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_robot_controller" TYPE FILE FILES "/home/spaget/manipal/warehouse/src/ros2slam/build/my_robot_controller/ament_cmake_environment_hooks/local_setup.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_robot_controller" TYPE FILE FILES "/home/spaget/manipal/warehouse/src/ros2slam/Warehouse_robot/build/my_robot_controller/ament_cmake_environment_hooks/local_setup.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_robot_controller" TYPE FILE FILES "/home/spaget/manipal/warehouse/src/ros2slam/build/my_robot_controller/ament_cmake_environment_hooks/package.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_robot_controller" TYPE FILE FILES "/home/spaget/manipal/warehouse/src/ros2slam/Warehouse_robot/build/my_robot_controller/ament_cmake_environment_hooks/package.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/spaget/manipal/warehouse/src/ros2slam/build/my_robot_controller/ament_cmake_index/share/ament_index/resource_index/packages/my_robot_controller")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/spaget/manipal/warehouse/src/ros2slam/Warehouse_robot/build/my_robot_controller/ament_cmake_index/share/ament_index/resource_index/packages/my_robot_controller")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_robot_controller/cmake" TYPE FILE FILES
-    "/home/spaget/manipal/warehouse/src/ros2slam/build/my_robot_controller/ament_cmake_core/my_robot_controllerConfig.cmake"
-    "/home/spaget/manipal/warehouse/src/ros2slam/build/my_robot_controller/ament_cmake_core/my_robot_controllerConfig-version.cmake"
+    "/home/spaget/manipal/warehouse/src/ros2slam/Warehouse_robot/build/my_robot_controller/ament_cmake_core/my_robot_controllerConfig.cmake"
+    "/home/spaget/manipal/warehouse/src/ros2slam/Warehouse_robot/build/my_robot_controller/ament_cmake_core/my_robot_controllerConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_robot_controller" TYPE FILE FILES "/home/spaget/manipal/warehouse/src/ros2slam/src/my_robot_controller/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/my_robot_controller" TYPE FILE FILES "/home/spaget/manipal/warehouse/src/ros2slam/Warehouse_robot/src/my_robot_controller/package.xml")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -116,5 +116,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/spaget/manipal/warehouse/src/ros2slam/build/my_robot_controller/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/spaget/manipal/warehouse/src/ros2slam/Warehouse_robot/build/my_robot_controller/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

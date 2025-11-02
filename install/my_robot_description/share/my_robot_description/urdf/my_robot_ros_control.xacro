@@ -1,5 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <robot name="my_robot" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+    <!-- <ros2_control name="GazeboSimSystem" type="system" >
+        <hardware>
+            <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        </hardware>
+
+        <joint name="base_lf">
+            <command_interface name="velocity">
+                <param name="min">-1</param>
+                <param name="max">1</param>
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+
+        <joint name="base_lb">
+            <command_interface name="velocity">
+                <param name="min">-1</param>
+                <param name="max">1</param>
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+
+        <joint name="base_rf">
+            <command_interface name="velocity">
+                <param name="min">-1</param>
+                <param name="max">1</param>
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+
+        <joint name="base_rb">
+            <command_interface name="velocity">
+                <param name="min">-1</param>
+                <param name="max">1</param>
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+    </ros2_control> -->
+
     <ros2_control name="GazeboSimSystem" type="system" >
         <hardware>
             <plugin>gazebo_ros2_control/GazeboSystem</plugin>
