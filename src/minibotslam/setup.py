@@ -20,7 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            "tf_updater = minibotslam.tf_updater:main"
+            "tf_updater = minibotslam.tf_updater:main",
+            "robotcontroller = minibotslam.robotcontroller:main"
         ],
     },
 )

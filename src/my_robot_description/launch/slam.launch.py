@@ -95,6 +95,14 @@ def generate_launch_description():
             output='screen',
             parameters=[{'use_sim_time': use_sim_time}]
         ),
+        
+        Node(
+            package='minibotslam',  # Change to your package name
+            executable='robotcontroller',  # Name of your odometry node executable
+            name='velocity_publisher',
+            output='screen',
+            parameters=[{'use_sim_time': use_sim_time}]
+        ),
 
         # ==== 4. Robot Hardware Controller ====
         # This is your existing controller that accepts /cmd_vel and controls motors
@@ -108,20 +116,20 @@ def generate_launch_description():
 
         # ==== 5. Laser Scanner Driver (LiDAR) ====
         # Example for RPLidar - adjust for your specific LiDAR
-        Node(
-            package='rplidar_ros',
-            executable='rplidar_composition',
-            name='rplidar_node',
-            output='screen',
-            parameters=[{
-                'serial_port': '/dev/ttyUSB0',  # Adjust to your LiDAR port
-                'serial_baudrate': 115200,
-                'frame_id': 'laser_frame',
-                'angle_compensate': True,
-                'scan_mode': 'Standard',
-                'use_sim_time': use_sim_time
-            }]
-        ),
+        # Node(
+        #     package='rplidar_ros',
+        #     executable='rplidar_composition',
+        #     name='rplidar_node',
+        #     output='screen',
+        #     parameters=[{
+        #         'serial_port': '/dev/ttyUSB0',  # Adjust to your LiDAR port
+        #         'serial_baudrate': 115200,
+        #         'frame_id': 'laser_frame',
+        #         'angle_compensate': True,
+        #         'scan_mode': 'Standard',
+        #         'use_sim_time': use_sim_time
+        #     }]
+        # ),
         
         # For other LiDAR types, replace with appropriate driver:
         # - SICK TiM: package='sick_scan_xd'
@@ -170,15 +178,15 @@ def generate_launch_description():
         ),
 
         # ==== 9. RViz2 Visualization ====
-        Node(
-            package='rviz2',
-            executable='rviz2',
-            name='rviz2',
-            output='screen',
-            arguments=['-d', rviz_config_file],
-            parameters=[{'use_sim_time': use_sim_time}],
-            condition=IfCondition(use_rviz)
-        ),
+        # Node(
+        #     package='rviz2',
+        #     executable='rviz2',
+        #     name='rviz2',
+        #     output='screen',
+        #     arguments=['-d', rviz_config_file],
+        #     parameters=[{'use_sim_time': use_sim_time}],
+        #     condition=IfCondition(use_rviz)
+        # ),
 
         # ==== 10. Static Transform Publishers (if needed) ====
         # Example: If your URDF doesn't define laser_frame position
@@ -186,9 +194,11 @@ def generate_launch_description():
             package='tf2_ros',
             executable='static_transform_publisher',
             name='base_to_laser',
-            arguments=['0', '0', '0.15', '0', '0', '0', 'base_link', 'laser_frame'],
+            arguments=['0', '0', '0.15', '0', '0', '0', 'base_link', 'laser'],
             parameters=[{'use_sim_time': use_sim_time}]
         ),
+        
+        
         
         # Add more static transforms as needed for sensors
         # Node(

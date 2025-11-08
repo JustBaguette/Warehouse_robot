@@ -8,7 +8,7 @@ import numpy as np
 
 class MecanumRobotController(Node):
     def __init__(self):
-        super().__init__('mecanum_robot_controller')
+        super().__init__('slam_robot_controller')
         self.vel_publisher = self.create_publisher(Twist, '/cmd_vel', 10)
 
         pygame.init()
@@ -44,19 +44,19 @@ class MecanumRobotController(Node):
                 pygame.event.pump()
 
                 # Read joystick values and apply deadzone filtering
-                right_x = self.apply_deadzone(self.joystick.get_axis(0))   # Strafe
-                right_y = self.apply_deadzone(-self.joystick.get_axis(1)) 
+                right_x = self.apply_deadzone(-self.joystick.get_axis(1))   # Strafe
+                # right_y = self.apply_deadzone(-self.joystick.get_axis(0)) 
                 # print(right_x)
                 # print(right_y) # Forward/Backward
-                left_x = self.apply_deadzone(self.joystick.get_axis(3))    # Rotation
-                left_y = self.apply_deadzone(-self.joystick.get_axis(4)) 
+                left_x = self.apply_deadzone(-self.joystick.get_axis(4))    # Rotation
+                # left_y = self.apply_deadzone(-self.joystick.get_axis(3)) 
                 # print(left_x)
                 # print(left_y)  # Extra Y-axis (if needed)
 
-                w1 = right_y + right_x
-                w2 = right_y - right_x
-                w3 = left_y + left_x
-                w4 = left_y - left_x
+                w1 = right_x
+                w2 = right_x
+                w3 = left_x
+                w4 = left_x
 
                 # print("wheel 1 :" , w1)
                 # print("wheel 2 :" , w2)
@@ -70,25 +70,20 @@ class MecanumRobotController(Node):
                 print("Wheel veloities :" , w)
 
                 # Robot dimensions
-                l = 0.44 / 2
-                d = 0.530 / 2
-                a = 0.195 / 2  # Ensure a ≠ 0
+                d = 0.153 / 2
+                a = 0.022 / 2  # Ensure a ≠ 0
 
                 # Transformation matrix
-                W = np.array([[1/a, 0, -(l + d)/a],
-                            [1/a,  0, -(l + d)/a],
-                            [1/a, 0,  (l + d)/a],
-                            [1/a,  0,  (l + d)/a]])
+                W = np.array([[1/a, 0, -(d)/a],
+                            [1/a,  0, -(d)/a],
+                            [1/a, 0,  (d)/a],
+                            [1/a,  0,  (d)/a]])
 
                 # Use pseudo-inverse if W is not square
                 W_inv = np.linalg.pinv(W)
 
                 # Compute motion vector (x, y, rotation)
                 x = np.matmul(W_inv, w)
-                
-                if (right_x and left_x == 0) or (right_x ==0 and left_x):
-                    x[1][0] = 0
-                
                 
                 print("uvr =" ,x)
 
@@ -129,9 +124,9 @@ class MecanumRobotController(Node):
 
                 # Publish Twist message
                 twist_msg = Twist()
-                twist_msg.linear.x = float(u) * 2
-                twist_msg.linear.y = float(v) * 2
-                twist_msg.angular.z = float(r) * 2
+                twist_msg.linear.x = float(u) * 20
+                # twist_msg.linear.y = float(v) * 2
+                twist_msg.angular.z = float(r) * 20
 
                 self.vel_publisher.publish(twist_msg)
                 # self.get_logger().info(f"Published Twist: {twist_msg}")

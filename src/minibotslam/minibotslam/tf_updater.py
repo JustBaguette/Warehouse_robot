@@ -1,7 +1,7 @@
 import math
 import rclpy
 from rclpy.node import Node
-from geometry_msgs.msg import Twist, TransformStamped
+from geometry_msgs.msg import Pose2D, TransformStamped
 from nav_msgs.msg import Odometry
 from tf2_ros import TransformBroadcaster
 from rclpy.qos import QoSProfile, ReliabilityPolicy
@@ -14,7 +14,7 @@ class FourWheelDiffOdom(Node):
         # --- Robot geometry constants ---
         self.WHEEL_BASE = 0.154     # distance between left & right wheels [m]
         self.WHEEL_RADIUS = 0.044   # wheel radius [m]
-        self.CRITICAL_FREQ = 10.0  # skip bad timing if lower than 10 Hz
+        self.CRITICAL_FREQ = 10.0   # minimum frequency (Hz) for valid dt
 
         # --- Robot state ---
         self.x = 0.0
@@ -30,75 +30,80 @@ class FourWheelDiffOdom(Node):
         self.odom_pub = self.create_publisher(Odometry, '/odom', qos_rel)
         self.tf_broadcaster = TransformBroadcaster(self)
 
-        # --- Subscription to encoder topic ---
-        # Expect geometry_msgs/Twist containing:
-        # linear.x = front_left, linear.y = rear_left,
-        # linear.z = front_right, angular.x = rear_right
+        # --- Subscription to encoder_data topic (Pose2D) ---
         self.encoder_sub = self.create_subscription(
-            Twist, '/encoder_data', self.encoder_callback, qos_best
+            Pose2D,
+            '/encoder_data',
+            self.encoder_callback,
+            qos_best
         )
 
-        # --- Timer for periodic publishing ---
+        # --- Timer to publish odometry at 10 Hz ---
         self.create_timer(0.1, self.publish_odometry)
 
-    def encoder_callback(self, msg: Twist):
-        current_time = self.get_clock().now()
+    def encoder_callback(self, msg: Pose2D):
+        # Use encoder wheel velocities from msg.x and msg.y (rad/s assumed)
+        left_speed = msg.x
+        right_speed = msg.y
 
-        # Decode wheel speeds [rad/s]
-        fl = msg.linear.x
-        rl = msg.linear.y
-        fr = msg.linear.z
-        rr = msg.angular.x
-
-        # Average per side
-        left_speed = (fl + rl) / 2.0
-        right_speed = (fr + rr) / 2.0
-
-        # Linear & angular velocity (differential drive equations)
-        v = (self.WHEEL_RADIUS / 2.0) * (right_speed + left_speed)
-        omega = (self.WHEEL_RADIUS / self.WHEEL_BASE) * (right_speed - left_speed)
+        # Assume msg.theta is timestamp in seconds (adjust if using different scale)
+        current_time = msg.theta
 
         if self.prev_time is None:
             self.prev_time = current_time
             return
 
-        dt = (current_time - self.prev_time).nanoseconds * 1e-9
-        if dt <= 0.0 or dt > 1.0 / self.CRITICAL_FREQ:
+        dt = current_time - self.prev_time
+        # Ignore invalid dt values
+        if dt <= 0.0 or dt > (1.0 / self.CRITICAL_FREQ):
             self.prev_time = current_time
             return
         self.prev_time = current_time
 
-        # Integrate motion
+        # Differential drive kinematics for linear and angular velocity
+        v = (self.WHEEL_RADIUS / 2.0) * (right_speed + left_speed)
+        omega = (self.WHEEL_RADIUS / self.WHEEL_BASE) * (right_speed - left_speed)
+
+        # Compute odometry update
         dx = v * math.cos(self.yaw) * dt
         dy = v * math.sin(self.yaw) * dt
         dtheta = omega * dt
 
+        # Update robot pose
         self.x += dx
         self.y += dy
         self.yaw = (self.yaw + dtheta + math.pi) % (2 * math.pi) - math.pi
 
-        # Cache velocities
+        # Cache velocities for publishing
         self.v = v
         self.omega = omega
 
     def publish_odometry(self):
         now = self.get_clock().now().to_msg()
 
+        # Publish NavMsgs/Odometry
         odom = Odometry()
         odom.header.stamp = now
         odom.header.frame_id = 'odom'
         odom.child_frame_id = 'base_link'
 
+        # Position
         odom.pose.pose.position.x = self.x
         odom.pose.pose.position.y = self.y
         odom.pose.pose.position.z = 0.0
+
+        # Orientation as quaternion (yaw rotation)
         odom.pose.pose.orientation.z = math.sin(self.yaw / 2.0)
         odom.pose.pose.orientation.w = math.cos(self.yaw / 2.0)
 
+        # Velocity
         odom.twist.twist.linear.x = self.v
         odom.twist.twist.angular.z = self.omega
 
-        # Broadcast TF
+        # Publish odometry message
+        self.odom_pub.publish(odom)
+
+        # Broadcast TF transform
         t = TransformStamped()
         t.header.stamp = now
         t.header.frame_id = 'odom'
@@ -109,8 +114,6 @@ class FourWheelDiffOdom(Node):
         t.transform.rotation.z = math.sin(self.yaw / 2.0)
         t.transform.rotation.w = math.cos(self.yaw / 2.0)
         self.tf_broadcaster.sendTransform(t)
-
-        self.odom_pub.publish(odom)
 
 
 def main(args=None):

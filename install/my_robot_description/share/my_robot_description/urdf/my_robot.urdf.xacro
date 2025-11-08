@@ -3,7 +3,7 @@
 
     <xacro:include filename="common_properties.urdf.xacro"/>
     <xacro:include filename="mobile_base.xacro"/>
-    <xacro:include filename="mobile_base_gazebo.xacro"/>
-    <xacro:include filename="my_robot_ros_control.xacro"/>
+    <!-- <xacro:include filename="mobile_base_gazebo.xacro"/>
+    <xacro:include filename="my_robot_ros_control.xacro"/> -->
 
 </robot>

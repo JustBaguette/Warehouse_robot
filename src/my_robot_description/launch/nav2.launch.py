@@ -7,7 +7,7 @@ from launch_ros.substitutions import FindPackageShare
 import os
 
 def generate_launch_description():
-    pkg_robot = FindPackageShare('your_robot_package').find('your_robot_package')
+    pkg_robot = FindPackageShare('my_robot_description').find('my_robot_description')
     nav2_params_file = os.path.join(pkg_robot, 'config', 'nav2_params.yaml')
     map_yaml_file = os.path.join(pkg_robot, 'maps', 'your_map.yaml')
 
@@ -64,8 +64,8 @@ def generate_launch_description():
 
         # Your odometry publisher node is needed
         Node(
-            package='your_robot_package',
-            executable='odom_publisher_4wd',
+            package='minibotslam',  # Change to your package name
+            executable='tf_updater',  # Name of your odometry node executable
             name='odom_publisher',
             output='screen',
             parameters=[{'use_sim_time': use_sim_time}]
